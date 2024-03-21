@@ -7,36 +7,23 @@ public class Chunk : MonoBehaviour
 {
     public Image image;
     
-    public void Init()
+    private int GenerateRandomColorIndex()
+    {
+        return Random.Range(0, Constants.AVAILABLE_COLORS.Count);
+    }
+
+    public void GenerateRandomChunk()
     {
         Color _color;
-        int randomColorIndex = Random.Range(0, Constants.AVAILABLE_COLORS.Count);
+
+        int randomColorIndex = GenerateRandomColorIndex();
 
         ColorUtility.TryParseHtmlString(Constants.AVAILABLE_COLORS[randomColorIndex], out _color);
         image.color = _color;
-
-        //gameObject.SetActive(true);
     }
 
     public void SetColor(Color color)
     {
-        if (color == Color.white)
-        {
-            return;
-        }
-
         image.color = color;
-        //gameObject.SetActive(true);
-    }
-
-    public void Reset()
-    {
-        image.color = Color.white;
-        //gameObject.SetActive(false);
-    }
-
-    void Update()
-    {
-        
     }
 }
