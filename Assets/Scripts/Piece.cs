@@ -24,36 +24,21 @@ public class Piece : MonoBehaviour, IDragHandler, IEndDragHandler
     public RectTransform rectTransform;
     private Vector3 startPosition;
 
-    void Awake()
-    {
-        for (int x = 0; x < chunks.Length; x++)
-        {
-            //chunks[x].gameObject.SetActive(false);
-        }
-    }
-
     public void Init()
     {
-        Reset();
-       
+        GenerateRandomPiece();
+    }
+
+    private void GenerateRandomPiece()
+    {
         int numberOfChunks = UnityEngine.Random.Range(1, Constants.MAX_NUMBER_OF_CHUNKS);
-        
-        Debug.Log("Number of chunks: " + numberOfChunks);
 
         startPosition = rectTransform.anchoredPosition;
 
         for (int x = 0; x < numberOfChunks; x++)
         {
             Debug.Log("Init chunk");
-            chunks[x].Init();
-        }
-    }
-
-    public void Reset()
-    {
-        for (int x = 0; x < Constants.MAX_NUMBER_OF_CHUNKS; x++)
-        {
-            chunks[x].Reset();
+            chunks[x].GenerateRandomChunk();
         }
     }
 
