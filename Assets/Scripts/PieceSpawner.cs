@@ -7,11 +7,14 @@ public class PieceSpawner : MonoBehaviour
     public event EventHandler<DropPieceEventArgs> DropPieceEvent;
     private int currentNumberOfPieces = 3;
     
-    void Awake()
+    private void Awake()
     {
+        // Subscribing to piece dropped event
         for (int x = 0; x < pieces.Length; x++) {
             pieces[x].PieceDroppedEvent += OnPieceDropped;
         }
+
+        // Generating initial pieces
         GeneratePieces();
     }
 
@@ -21,9 +24,12 @@ public class PieceSpawner : MonoBehaviour
             pieces[x].rectTransform.anchoredPosition = Constants.SPAWN_COORDS[x];
         }
     }
-
     
-    void OnPieceDropped(object sender, DropPieceEventArgs e)
+    private Boolean CheckIfPiecePlaceholderEmpty() {
+        return currentNumberOfPieces == 0;
+    }
+    
+    private void OnPieceDropped(object sender, DropPieceEventArgs e)
     {
         float xCoord = e.XCoord;
         float yCoord = e.YCoord;
@@ -32,7 +38,8 @@ public class PieceSpawner : MonoBehaviour
         DropPieceEvent?.Invoke(this, new DropPieceEventArgs(xCoord, yCoord, chunks));
 
         currentNumberOfPieces--;
-        if (currentNumberOfPieces == 0) {
+
+        if (CheckIfPiecePlaceholderEmpty()) {
             GeneratePieces();
         }
     }

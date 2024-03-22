@@ -80,52 +80,9 @@ build-output.properties
 # Crashlytics generated file
 crashlytics-build.properties
 
-# OS generated
-**/.DS_Store
-**/DS_Store
-**/DS_Store?*
-**/._*
-**/Spotlight-V100
-**/.Trashes
-**/ehthumbs.db
-**/Thumbs.db
+# Packed Addressables
+/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
 
-# Windows generated
-*.orig
-*.orig.meta
-*.uxf
-
-# Android SDK
-**/androidx.*
-**/com.*
-**/javax.*
-**/org.*
-**/FirebaseCrashlytics.*
-FirebaseApp.androidlib
-FirebaseApp.androidlib.meta
-AndroidResolverDependencies.xml
-GvhProjectSettings.xml
-
-# Credential files:
-**/GoogleService-Info*.plist*
-**/google-services*.json**
-**/StreamingAssets/
-**/StreamingAssets.meta
-
-# Addressable Assets:
-**/AddressableAssetsData/iOS/
-**/AddressableAssetsData/iOS.meta
-**/AddressableAssetsData/Android/
-**/AddressableAssetsData/Android.meta
-**/AddressableAssetsData/link.xml
-**/AddressableAssetsData/link.xml.meta
-
-#Project Specific
-**/UserSettings/Layouts
-EditorUserSettings.*
-*.gz
-**/codeium_api_key
-**/AOTGenerationConfig.asset
-**/Assets/Libs/Sirenix/Assemblies/AOT/
-**/Assets/Libs/Sirenix/Assemblies/AOT.meta
-!**/Assets/Libs/iOS Project Builder/*
+# Temporary auto-generated Android Assets
+/[Aa]ssets/[Ss]treamingAssets/aa.meta
+/[Aa]ssets/[Ss]treamingAssets/aa/*
